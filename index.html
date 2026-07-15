@@ -113,6 +113,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -120,8 +122,9 @@ body {
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  padding-bottom: 80px;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
   overflow-x: hidden;
+  width: 100%;
   position: relative;
 }
 
@@ -639,6 +642,7 @@ footer {
   box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .mobilebar a {
   display: flex;
@@ -660,6 +664,9 @@ footer {
 
 /* RESPONSIVE STYLES */
 @media (max-width: 900px) {
+  .hdr .btn-call {
+    display: none;
+  }
   .hero h1 {
     font-size: 2.2rem;
   }
@@ -681,14 +688,18 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    padding: 50px 0 40px;
+  }
   .hero h1 {
-    font-size: 1.85rem;
+    font-size: 1.7rem;
   }
   .hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
   }
   .sec-title {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
   .btn {
     width: 100%;
